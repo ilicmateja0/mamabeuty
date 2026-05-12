@@ -1,0 +1,20 @@
+{
+  "short_name": "Mama Beauty",
+  "name": "Mama Beauty - Salon Lepote Ub",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#fef9c3",
+  "background_color": "#ffffff"
+}
