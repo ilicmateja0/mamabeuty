@@ -127,8 +127,8 @@ const services: Service[] = [
   },
   {
     name: 'Terapija za oziljke',
-    description: 'AI SkinMax kamera je napredni inteligentni sistem za dubinsku analizu kože lica.',
-    image: '/assets/usluge/kamera.webp',
+    description: 'Lečenje ožiljaka je proces koji zahteva strpljenje, jer nijedan tretman ne može potpuno izbrisati ožiljak, ali ga može učiniti skoro neprimetnim.',
+    image: '/assets/usluge/oziljak.webp',
   },
 ];
 
@@ -168,11 +168,7 @@ const facialTreatments: Service[] = [
     description: 'Dermoaroma egzozomi predstavljaju napredne, patentirane formulacije za regeneraciju kože i kose, koje koriste organski kolostrum za podsticanje ćelijske obnove.',
     image: '/assets/usluge/egzozomi.webp',
   },
-  {
-    name: 'Kamera za lice',
-    description: 'AI SkinMax kamera je napredni inteligentni sistem za dubinsku analizu kože lica.',
-    image: '/assets/usluge/kamera.webp',
-  },
+
 ];
 const Home: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
