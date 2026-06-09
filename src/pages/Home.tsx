@@ -178,6 +178,45 @@ const Home: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [showAllServices, setShowAllServices] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+const cenovnici = [
+  {
+    id: 1,
+    title: "Laserska Epilacija",
+    image: "/assets/usluge/laserska.webp",
+  },
+  {
+    id: 2,
+    title: "Tretmani Tela",
+    image: "/assets/usluge/telo.webp",
+  },
+  {
+    id: 3,
+    title: "Tretmani Lica",
+    image: "/assets/usluge/lice.webp",
+  },
+  {
+    id: 4,
+    title: "Frizerske Usluge",
+    image: "/assets/usluge/frizercenovnik.webp",
+  },
+  {
+    id: 5,
+    title: "Nokti",
+    image: "/assets/usluge/nokticenovnik.webp",
+  },
+  {
+    id: 6,
+    title: "Masaže",
+    image: "/assets/usluge/masaze.webp",
+  },
+  {
+    id: 7,
+    title: "Ostale Usluge",
+    image: "/assets/usluge/ostale.webp",
+  },
+];
   const totalImages = 8; // Total number of salon images
 
   // Preload next salon images
@@ -440,8 +479,11 @@ const Home: React.FC = () => {
   </div>
 </div>
 
-      {/* Price Lists Section */}
-      <div id="price-lists-section" className="content-container section-padding scroll-mt-24">
+     {/* Price Lists Section */}
+<div
+  id="price-lists-section"
+  className="content-container section-padding scroll-mt-24"
+>
   <div className="text-center mb-12">
     <h2 className="section-title">Cenovnik</h2>
     <p className="section-subtitle">
@@ -449,33 +491,46 @@ const Home: React.FC = () => {
     </p>
   </div>
 
-  <div className="mt-12 flex justify-center">
-    <div className="card hover-card max-w-xl w-full text-center">
-      
-      <div className="overflow-hidden bg-yellow-50 flex justify-center">
-        <img 
-          src="/assets/usluge/cenovnik1.webp" 
-          alt="Cenovnik 1" 
-          className="w-full max-w-lg h-auto rounded-lg shadow-lg object-cover"
-          loading="lazy"
-        />
-      </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {cenovnici.map((item) => (
+      <div
+        key={item.id}
+        onClick={() => setSelectedImage(item.image)}
+        className="card hover-card cursor-pointer overflow-hidden"
+      >
+        <div className="h-[350px] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+        </div>
 
-      <div className="p-8 flex flex-col items-center">
-        <h3 className="text-2xl font-bold text-yellow-900 mb-4">
-          Cenovnik Usluga
-        </h3>
-        <p className="text-yellow-700 leading-relaxed max-w-md">
-          Detaljan pregled cena naših usluga
-        </p>
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-bold text-yellow-900">
+            {item.title}
+          </h3>
+        </div>
       </div>
-
-    </div>
+    ))}
   </div>
-</div>
-            </div>
 
-  ); 
+  {selectedImage && (
+    <div
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999] p-4"
+      onClick={() => setSelectedImage(null)}
+    >
+      <img
+        src={selectedImage}
+        alt="Cenovnik"
+        className="max-w-full max-h-[95vh] rounded-xl shadow-2xl"
+      />
+    </div>
+  )}
+</div>
+</div>
+
+  );
 };
 
-export default Home; 
+export default Home;
